@@ -13,3 +13,5 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+gem 'xapi', '~>0.0.1', git: 'https://github.com/growthtribeacademy/Xapi.git', branch: 'master'
