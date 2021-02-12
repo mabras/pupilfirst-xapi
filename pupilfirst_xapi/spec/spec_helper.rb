@@ -13,3 +13,13 @@ def expect_actor(xapi, name:, email:)
   expect(xapi.object_type).to eq 'Agent'
 end
 
+class FakeLrs
+  def initialize
+    @statements = []
+  end
+  attr_reader :statements
+
+  def save_statement(statement)
+    @statements << statement
+  end
+end
