@@ -1,10 +1,37 @@
+require "active_job"
 require 'xapi'
 
 module PupilfirstXapi
   class Outbox
+    class Job < ActiveJob::Base
+      queue_as :default
+
+      def perform(payload)
+        outbox.call(**payload)
+      end
+
+      private
+
+      def outbox
+        Outbox.new(
+          lrs: lrs,
+          repository: PupilfirstXapi.repository,
+          uri_for: PupilfirstXapi.uri_for
+        )
+      end
+
+      def remote_lrs
+        Xapi.create_remote_lrs(
+          end_point: ENV['LRS_ENDPOINT'],
+          user_name: ENV['LRS_USERNAME'],
+          password: ENV['LRS_PASSWORD']
+        )
+      end
+    end
+
     class << self
       def <<(payload)
-        puts payload
+        Outbox::Job.perform_later(payload)
       end
     end
 
