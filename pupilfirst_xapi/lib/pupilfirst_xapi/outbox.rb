@@ -8,7 +8,7 @@ module PupilfirstXapi
       end
     end
 
-    def initialize(lrs:, repository: PupilfirstXapi.repository, uri_for: PupilfirstXapi.uri_for)
+    def initialize(lrs:, repository:, uri_for:)
       @lrs = lrs
       @repository = repository
       @uri_for = uri_for
