@@ -1,4 +1,5 @@
-require "rails"
+require "action_controller/railtie"
+require "active_job/railtie"
 require "xapi"
 require "pupilfirst_xapi/version"
 require "pupilfirst_xapi/engine"
