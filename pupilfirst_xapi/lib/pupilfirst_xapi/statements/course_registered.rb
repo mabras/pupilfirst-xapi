@@ -6,7 +6,7 @@ module PupilfirstXapi
         @uri_for = uri_for
       end
 
-      def call(actor_id:, resource_id:, **_)
+      def call(actor_id:, resource_id:)
         actor = @repository.call(:user, actor_id)
         Xapi.create_statement(
           actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.display_name),
