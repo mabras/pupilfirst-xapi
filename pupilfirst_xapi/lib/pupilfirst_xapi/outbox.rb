@@ -14,7 +14,7 @@ module PupilfirstXapi
 
       def outbox
         Outbox.new(
-          lrs: lrs,
+          lrs: remote_lrs,
           repository: PupilfirstXapi.repository,
           uri_for: PupilfirstXapi.uri_for
         )
