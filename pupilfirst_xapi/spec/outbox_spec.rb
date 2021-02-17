@@ -36,7 +36,7 @@ module PupilfirstXapi
       ].each do |event_type, expected_verb, expected_object_id|
         lrs = FakeLrs.new
         Outbox.new(lrs: lrs, repository: repository, uri_for: uri_for)
-          .call(actor_id: 123, resource_id: 456, context_id: 789, id: id, timestamp: timestamp, event_type: event_type)
+          .call(actor_id: 123, resource_id: 456, id: id, timestamp: timestamp, event_type: event_type)
         expect(lrs.statements.count).to eq(1)
         xapi = lrs.statements.first
         expect(xapi).to be_a Xapi::Statement

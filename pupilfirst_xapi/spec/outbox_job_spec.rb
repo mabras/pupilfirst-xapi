@@ -7,7 +7,7 @@ module PupilfirstXapi
 
     it 'schedules new xapi statement push' do
       ActiveJob::Base.queue_adapter = :test
-      payload = {actor_id: 123, resource_id: 456, context_id: 789, id: id, timestamp: timestamp, event_type: 'any.event'}
+      payload = {actor_id: 123, resource_id: 456, id: id, timestamp: timestamp, event_type: 'any.event'}
       expect {
         Outbox << payload
       }.to have_enqueued_job(Outbox::Job).with(payload)

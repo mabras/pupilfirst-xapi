@@ -13,7 +13,7 @@ module PupilfirstXapi
         repository = ->(klass, resource_id) { data.dig(klass, resource_id) }
         uri_for = ->(obj) { obj == target ? 'target-1' : nil }
 
-        xapi = TargetCompleted.new(repository, uri_for).call(actor_id: 123, resource_id: 456, context_id: 789)
+        xapi = TargetCompleted.new(repository, uri_for).call(actor_id: 123, resource_id: 456)
 
         expect(xapi).to be_a Xapi::Statement
         expect_actor(xapi.actor, name: 'John Doe', email: 'john@doe.com')

@@ -3,5 +3,6 @@ source 'https://rubygems.org'
 # Ruby on Rails. http://rubyonrails.org
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'dotenv-rails', '~> 2.2'
-gem 'delayed_job_active_record', '~> 4.1' # Delayed Job for deferring tasks.
 gem 'rspec-rails', '~> 4.0' # RSpec for Rails 5+.
+
+gem 'pupilfirst_xapi',path: '../../../pupilfirst_xapi'
