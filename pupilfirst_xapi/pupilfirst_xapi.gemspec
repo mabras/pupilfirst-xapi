@@ -19,5 +19,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.4"
 
   spec.add_development_dependency 'rspec-rails'
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency 'dotenv-rails'
+  spec.add_development_dependency 'webmock'
 end
