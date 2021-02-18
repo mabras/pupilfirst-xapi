@@ -12,8 +12,8 @@ module PupilfirstXapi
   mattr_accessor :repository
 
   Statements.subscribe do |event_type|
-    ActiveSupport::Notifications.subscribe("#{event_type}.pupilfirst") do |name, _start, finish, id, payload|
-      Outbox << payload.merge(id: id, event_type: event_type, name: name, timestamp: finish)
+    ActiveSupport::Notifications.subscribe("#{event_type}.pupilfirst") do |_name, _start, finish, id, payload|
+      Outbox << payload.merge(id: id, event_type: event_type, timestamp: finish)
     end
   end
 end
