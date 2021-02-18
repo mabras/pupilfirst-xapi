@@ -42,6 +42,7 @@ RSpec.describe "#xapi", type: :job do
 
   before do
     ActiveJob::Base.queue_adapter = :test
+    ActiveJob::Base.queue_adapter.perform_enqueued_jobs = true
     PupilfirstXapi.repository = repository
     PupilfirstXapi.uri_for = uri_for
   end
@@ -78,7 +79,7 @@ RSpec.describe "#xapi", type: :job do
       timestamp: timestamp.iso8601,
       id: unique_id,
     }
-    stub_request(:put, "https://test.lrs/statements?statementId=#{unique_id}")
+    request = stub_request(:put, "https://test.lrs/statements?statementId=#{unique_id}")
       .with(
         body: xapi_request.to_json,
         headers: {
@@ -89,23 +90,23 @@ RSpec.describe "#xapi", type: :job do
           'User-Agent'=>'Faraday v1.3.0',
           'X-Experience-Api-Version'=>'1.0.1'
         }
-      ).to_return(status: 200, body: "", headers: {})
+      ).to_return(status: 204, body: "", headers: {})
 
     allow_any_instance_of(ActiveSupport::Notifications::Instrumenter).to receive(:unique_id).and_return(unique_id)
     allow(Concurrent).to receive(:monotonic_time).and_return(timestamp)
 
-    expect {
-      ActiveSupport::Notifications.instrument(
-        "course.completed.pupilfirst",
-        resource_id: ror_guides.id,
-        actor_id: john.id,
-      )
-    }.to have_enqueued_job(PupilfirstXapi::Outbox::Job).with do |payload|
-      expect(payload.event_type).to eq 'course.completed'
-      expect(payload.actor_id).to eq 123
-      expect(payload.resource_id).to eq 1234
-      expect(payload.id).to be_a?(String)
-      expect(payload.timestamp).to be_a?(Time)
-    end
+    ActiveSupport::Notifications.instrument(
+      "course.completed.pupilfirst",
+      resource_id: ror_guides.id,
+      actor_id: john.id,
+    )
+    expect(PupilfirstXapi::Outbox::Job).to have_been_performed.with({
+      event_type: 'course.completed',
+      actor_id: 123,
+      resource_id: 1234,
+      id: unique_id,
+      timestamp: timestamp,
+    })
+    expect(request).to have_been_requested
   end
 end
