@@ -1,4 +1,6 @@
 require_relative "../lib/pupilfirst_xapi"
+require 'dotenv'
+Dotenv.load('.env.test')
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
