@@ -50,8 +50,8 @@ RSpec.describe "#xapi", type: :job do
   def xapi_actor(user)
     {
       objectType: 'Agent',
+      name: user.display_name,
       mbox: "mailto:#{user.email}",
-      name: user.display_name
     }
   end
 
@@ -78,6 +78,7 @@ RSpec.describe "#xapi", type: :job do
       },
       timestamp: timestamp.iso8601,
       id: unique_id,
+      version: '1.0.1',
     }
     request = stub_request(:put, "https://test.lrs/statements?statementId=#{unique_id}")
       .with(
