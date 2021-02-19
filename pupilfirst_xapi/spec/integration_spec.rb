@@ -97,12 +97,12 @@ RSpec.describe "#xapi", type: :job do
     allow(Concurrent).to receive(:monotonic_time).and_return(timestamp)
 
     ActiveSupport::Notifications.instrument(
-      "course.completed.pupilfirst",
+      "course_completed.pupilfirst",
       resource_id: ror_guides.id,
       actor_id: john.id,
     )
     expect(PupilfirstXapi::Outbox::Job).to have_been_performed.with({
-      event_type: 'course.completed',
+      event_type: 'course_completed',
       actor_id: 123,
       resource_id: 1234,
       id: unique_id,

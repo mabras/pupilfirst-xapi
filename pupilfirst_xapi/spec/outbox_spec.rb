@@ -30,9 +30,9 @@ module PupilfirstXapi
 
     it 'post xapi statements to provided lrs' do
       [
-        ['course.completed', Verbs::COMPLETED, 'rails-for-begginers'],
-        ['course.registered', Verbs::REGISTERED, 'rails-for-begginers'],
-        ['target.completed', Verbs::COMPLETED_ASSIGNMENT, 'target-1'],
+        ['course_completed', Verbs::COMPLETED, 'rails-for-begginers'],
+        ['course_registered', Verbs::REGISTERED, 'rails-for-begginers'],
+        ['target_completed', Verbs::COMPLETED_ASSIGNMENT, 'target-1'],
       ].each do |event_type, expected_verb, expected_object_id|
         lrs = FakeLrs.new
         Outbox.new(lrs: lrs, repository: repository, uri_for: uri_for)
