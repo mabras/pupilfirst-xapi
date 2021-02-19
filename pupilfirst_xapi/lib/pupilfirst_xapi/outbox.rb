@@ -23,8 +23,8 @@ module PupilfirstXapi
       def remote_lrs
         Xapi.create_remote_lrs(
           end_point: ENV['LRS_ENDPOINT'],
-          user_name: ENV['LRS_USERNAME'],
-          password: ENV['LRS_PASSWORD']
+          user_name: ENV['LRS_KEY'],
+          password: ENV['LRS_SECRET']
         )
       end
     end

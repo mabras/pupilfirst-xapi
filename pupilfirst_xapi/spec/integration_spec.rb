@@ -86,7 +86,7 @@ RSpec.describe "#xapi", type: :job do
         headers: {
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'Authorization'=>'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+          'Authorization'=>'Basic a2V5OnNlY3JldA==',
           'Content-Type'=>'application/json',
           'User-Agent'=>'Faraday v1.3.0',
           'X-Experience-Api-Version'=>'1.0.1'

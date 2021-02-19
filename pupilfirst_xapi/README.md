@@ -66,9 +66,9 @@ the unique URI of the object passed as argument.
 ### Define LRS endpoint
 Set environment variables:
 
-* `LRS_ENDPOINT` - url of LRS server
-* `LRS_USERNAME` - username for authentication
-* `LRS_PASSWORD` - password for authentication
+* `LRS_ENDPOINT` - url of LRS server's XAPI endpoint
+* `LRS_KEY` - authentication key
+* `LRS_SECRET` - authentication secter
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
