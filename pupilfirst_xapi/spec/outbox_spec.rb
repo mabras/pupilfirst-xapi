@@ -40,7 +40,7 @@ module PupilfirstXapi
         expect(lrs.statements.count).to eq(1)
         xapi = lrs.statements.first
         expect(xapi).to be_a Xapi::Statement
-        expect(xapi.id).to eq(id)
+        expect(xapi.id).to eq(nil)
         expect(xapi.timestamp).to eq(timestamp)
         expect_actor(xapi.actor, name: 'John Doe', email: 'john@doe.com')
         expect(xapi.verb).to eq(expected_verb)

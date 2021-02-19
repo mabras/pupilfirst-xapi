@@ -75,10 +75,8 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
         },
       },
       timestamp: timestamp.iso8601,
-      id: unique_id,
-      version: '1.0.1',
     }
-    request = stub_request(:put, "https://test.lrs/statements?statementId=#{unique_id}")
+    request = stub_request(:post, "https://test.lrs/statements")
       .with(
         body: xapi_request.to_json,
         headers: {

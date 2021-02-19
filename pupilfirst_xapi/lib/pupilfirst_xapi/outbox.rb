@@ -50,7 +50,7 @@ module PupilfirstXapi
 
     def statement_for(id:, event_type:, timestamp:, **args)
       builder_for(event_type).call(**statement_args(**args)).tap do |statement|
-        statement.stamp(id: id, timestamp: timestamp)
+        statement.stamp(id: nil, timestamp: timestamp)
       end
     end
 
