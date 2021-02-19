@@ -4,7 +4,7 @@ module PupilfirstXapi
   RSpec.describe Outbox do
     let(:id)        { SecureRandom.uuid }
     let(:timestamp) { Time.now }
-    let(:john)      { double(:john, display_name: 'John Doe', email: 'john@doe.com') }
+    let(:john)      { double(:john, name: 'John Doe', email: 'john@doe.com') }
     let(:course)    { double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil) }
     let(:target)    { double(:target, title: '1st target', description: 'Seems easy') }
     let(:data) {

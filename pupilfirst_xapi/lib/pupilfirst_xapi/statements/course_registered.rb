@@ -9,7 +9,7 @@ module PupilfirstXapi
       def call(actor_id:, resource_id:)
         actor = @repository.call(:user, actor_id)
         Xapi.create_statement(
-          actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.display_name),
+          actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.name),
           verb: Verbs::REGISTERED,
           object: object(resource_id).call
         )

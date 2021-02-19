@@ -4,7 +4,7 @@ module PupilfirstXapi
   module Statements
     RSpec.describe CourseRegistered do
       it do
-        john   = double(:john, display_name: 'John Doe', email: 'john@doe.com')
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         course = double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil)
         data = {
           course: { 456 => course },
@@ -33,7 +33,7 @@ module PupilfirstXapi
         ends_at   = 3.days.after
         duration  = ActiveSupport::Duration.build(ends_at - starts_at).iso8601
 
-        john   = double(:john, display_name: 'John Doe', email: 'john@doe.com')
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         course = double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: starts_at, ends_at: ends_at)
         data = {
           course: { 456 => course },

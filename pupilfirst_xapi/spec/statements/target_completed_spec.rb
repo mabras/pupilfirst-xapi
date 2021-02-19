@@ -5,7 +5,7 @@ module PupilfirstXapi
     RSpec.describe TargetCompleted do
       it do
         target = double(:target, title: '1st target', description: 'Seems easy')
-        john   = double(:john, display_name: 'John Doe', email: 'john@doe.com')
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         data = {
           target: { 456 => target },
           user: { 123 => john },

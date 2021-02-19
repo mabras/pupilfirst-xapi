@@ -4,7 +4,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
   let(:john) {
     double(:john,
            id: 123,
-           display_name: 'John Doe',
+           name: 'John Doe',
            email: 'john@example.com',
            uri: '/user/123')
   }
@@ -48,7 +48,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
   def xapi_actor(user)
     {
       objectType: 'Agent',
-      name: user.display_name,
+      name: user.name,
       mbox: "mailto:#{user.email}",
     }
   end

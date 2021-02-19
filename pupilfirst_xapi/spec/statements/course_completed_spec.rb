@@ -4,7 +4,7 @@ module PupilfirstXapi
   module Statements
     RSpec.describe CourseCompleted do
       it do
-        john   = double(:john, display_name: 'John Doe', email: 'john@doe.com')
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         course = double(:course, name: 'Rails for Begginers', description: 'Seems easy')
         data = {
           course: { 456 => course },
