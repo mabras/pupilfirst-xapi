@@ -16,6 +16,25 @@ RSpec.configure do |config|
   end
   config.order = :random
   Kernel.srand config.seed
+
+  config.around(:each, type: :job) do |example|
+    ActiveJob::Base.queue_adapter = :test
+    example.run
+  ensure
+    ActiveJob::Base.queue_adapter.enqueued_jobs = []
+    ActiveJob::Base.queue_adapter.performed_jobs = []
+  end
+
+  config.around(:each, perform_jobs: true) do |example|
+    old_perform_enqueued_jobs = ActiveJob::Base.queue_adapter.perform_enqueued_jobs
+    old_perform_enqueued_at_jobs = ActiveJob::Base.queue_adapter.perform_enqueued_at_jobs
+    ActiveJob::Base.queue_adapter.perform_enqueued_jobs = true
+    ActiveJob::Base.queue_adapter.perform_enqueued_at_jobs = true
+    example.run
+  ensure
+    ActiveJob::Base.queue_adapter.perform_enqueued_jobs = old_perform_enqueued_jobs
+    ActiveJob::Base.queue_adapter.perform_enqueued_at_jobs = old_perform_enqueued_at_jobs
+  end
 end
 
 def expect_actor(xapi, name:, email:)

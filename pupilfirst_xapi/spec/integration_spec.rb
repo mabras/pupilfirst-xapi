@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "#xapi", type: :job do
+RSpec.describe "#xapi", type: :job, perform_jobs: true do
   let(:john) {
     double(:john,
            id: 123,
@@ -41,8 +41,6 @@ RSpec.describe "#xapi", type: :job do
   let(:uri_for)    { ->(obj) { obj.uri } }
 
   before do
-    ActiveJob::Base.queue_adapter = :test
-    ActiveJob::Base.queue_adapter.perform_enqueued_jobs = true
     PupilfirstXapi.repository = repository
     PupilfirstXapi.uri_for = uri_for
   end

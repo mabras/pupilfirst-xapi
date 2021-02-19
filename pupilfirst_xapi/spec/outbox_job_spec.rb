@@ -6,7 +6,6 @@ module PupilfirstXapi
     let(:timestamp) { Time.now }
 
     it 'schedules new xapi statement push' do
-      ActiveJob::Base.queue_adapter = :test
       payload = {actor_id: 123, resource_id: 456, id: id, timestamp: timestamp, event_type: 'any.event'}
       expect {
         Outbox << payload
