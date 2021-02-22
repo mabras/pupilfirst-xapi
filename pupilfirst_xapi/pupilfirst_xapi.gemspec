@@ -7,13 +7,13 @@ Gem::Specification.new do |spec|
   spec.email       = ["devs@growthtribe.io"]
   spec.homepage    = "https://github.com/growthtribeacademy/pupilfirst-xapi"
   spec.summary     = "XAPI statements generator and publisher to LRS for Pupilfirst"
-  spec.license     = "MIT"
+  spec.license     = "GPL-3.0-or-later"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/growthtribeacademy/pupilfirst-xapi/pupilfirst_xapi"
   spec.metadata["changelog_uri"] = "https://github.com/growthtribeacademy/pupilfirst-xapi/pupilfirst_xapi/CHANGELOG"
 
-  spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  spec.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   spec.test_files = Dir["spec/**/*"]
 
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.4"

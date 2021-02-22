@@ -71,4 +71,4 @@ Set environment variables:
 * `LRS_SECRET` - authentication secter
 
 ## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [GNU GPLv3 License](https://opensource.org/licenses/GPL-3.0).
