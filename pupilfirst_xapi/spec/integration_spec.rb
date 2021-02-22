@@ -74,6 +74,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
         },
       },
       timestamp: timestamp.iso8601,
+      version: '1.0.1',
     }
     request = stub_request(:post, "https://test.lrs/statements")
       .with(
