@@ -1,6 +1,6 @@
 require "action_controller/railtie"
 require "active_job/railtie"
-require "xapi"
+require "growthtribe_xapi"
 require "pupilfirst_xapi/version"
 require "pupilfirst_xapi/outbox"
 require "pupilfirst_xapi/object"
