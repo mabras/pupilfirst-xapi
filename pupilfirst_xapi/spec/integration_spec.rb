@@ -61,7 +61,6 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
   end
 
   it "#works" do
-    unique_id = SecureRandom.hex(10)
     timestamp = Time.now
     xapi_request = {
       actor: xapi_actor(john),
@@ -89,7 +88,6 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
         }
       ).to_return(status: 204, body: "", headers: {})
 
-    allow_any_instance_of(ActiveSupport::Notifications::Instrumenter).to receive(:unique_id).and_return(unique_id)
     allow(Concurrent).to receive(:monotonic_time).and_return(timestamp)
 
     ActiveSupport::Notifications.instrument(
@@ -101,7 +99,6 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
       event_type: 'course_completed',
       actor_id: 123,
       resource_id: 1234,
-      id: unique_id,
       timestamp: timestamp,
     })
     expect(request).to have_been_requested

@@ -48,7 +48,7 @@ module PupilfirstXapi
     private
     attr_reader :lrs, :repository, :uri_for
 
-    def statement_for(id:, event_type:, timestamp:, **args)
+    def statement_for(event_type:, timestamp:, **args)
       builder_for(event_type).call(**statement_args(**args)).tap do |statement|
         statement.stamp(id: nil, timestamp: timestamp)
       end
