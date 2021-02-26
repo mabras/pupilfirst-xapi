@@ -2,15 +2,17 @@ require 'spec_helper'
 
 module PupilfirstXapi
   RSpec.describe Outbox do
-    let(:timestamp) { Time.now }
-    let(:john)      { double(:john, name: 'John Doe', email: 'john@doe.com') }
-    let(:course)    { double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil) }
-    let(:target)    { double(:target, title: '1st target', description: 'Seems easy') }
+    let(:timestamp)   { Time.now }
+    let(:john)        { double(:john, name: 'John Doe', email: 'john@doe.com') }
+    let(:course)      { double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil) }
+    let(:target)      { double(:target, title: '1st target', description: 'Seems easy') }
+    let(:submission)  { double(:timeline_event, target: target, passed?: true) }
+
     let(:data) {
       {
         course: { 456 => course },
-        target: { 456 => target },
-        user:   { 123 => john },
+        timeline_event: { 456 => submission },
+        user: { 123 => john },
       }
     }
     let(:repository) { ->(klass, resource_id) { data.dig(klass, resource_id) } }
@@ -29,9 +31,10 @@ module PupilfirstXapi
 
     it 'post xapi statements to provided lrs' do
       [
-        ['course_completed', Verbs::COMPLETED, 'rails-for-begginers'],
-        ['course_registered', Verbs::REGISTERED, 'rails-for-begginers'],
-        ['target_completed', Verbs::COMPLETED_ASSIGNMENT, 'target-1'],
+        [:course_completed, Verbs::COMPLETED, 'rails-for-begginers'],
+        [:student_added, Verbs::REGISTERED, 'rails-for-begginers'],
+        [:submission_graded, Verbs::COMPLETED_ASSIGNMENT, 'target-1'],
+        [:submission_automatically_verified, Verbs::COMPLETED_ASSIGNMENT, 'target-1'],
       ].each do |event_type, expected_verb, expected_object_id|
         lrs = FakeLrs.new
         Outbox.new(lrs: lrs, repository: repository, uri_for: uri_for)

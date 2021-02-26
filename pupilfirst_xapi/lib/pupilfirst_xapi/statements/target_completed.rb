@@ -8,19 +8,21 @@ module PupilfirstXapi
 
       def call(actor_id:, resource_id:)
         actor = @repository.call(:user, actor_id)
+        submission = @repository.call(:timeline_event, resource_id)
+        return unless submission.passed?
+
         Xapi.create_statement(
           actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.name),
           verb: Verbs::COMPLETED_ASSIGNMENT,
-          object: object(resource_id).call
+          object: object(submission.target).call
         )
       end
 
       private
 
-      def object(resource_id)
-        target  = @repository.call(:target, resource_id)
+      def object(target)
         PupilfirstXapi::Object.new(
-          id: @uri_for.call(target ),
+          id: @uri_for.call(target),
           type: "http://activitystrea.ms/schema/1.0/task",
           name: target.title,
           description: target.description

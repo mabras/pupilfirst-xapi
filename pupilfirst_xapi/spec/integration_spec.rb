@@ -23,6 +23,9 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
            description: 'This guide covers getting up and running with Ruby on Rails.',
            uri: 'https://guides.rubyonrails.org/getting_started.html')
   }
+  let(:good_one) { double(:timeline_event, target: getting_started, passed?: true) }
+  let(:bad_one) { double(:timeline_event, target: getting_started, passed?: false) }
+
 
   let(:models) {
     {
@@ -32,8 +35,9 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
       :course => {
         1234 => ror_guides,
       },
-      :target => {
-        1 => getting_started
+      :timeline_event => {
+        1 => good_one,
+        2 => bad_one,
       }
     }
   }
@@ -97,7 +101,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
       actor_id: john.id,
     )
     expect(PupilfirstXapi::Outbox::Job).to have_been_performed.with({
-      event_type: 'course_completed',
+      event_type: :course_completed,
       actor_id: 123,
       resource_id: 1234,
       timestamp: timestamp,

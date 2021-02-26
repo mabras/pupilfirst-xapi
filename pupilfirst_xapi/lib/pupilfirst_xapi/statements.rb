@@ -13,9 +13,10 @@ module PupilfirstXapi
     end
 
     EVENTS = {
-      'course_completed'  => CourseCompleted,
-      'course_registered' => CourseRegistered,
-      'target_completed'  => TargetCompleted,
+      :course_completed                   => CourseCompleted,
+      :student_added                      => CourseRegistered,
+      :submission_graded                  => TargetCompleted,
+      :submission_automatically_verified  => TargetCompleted,
     }
   end
 end
