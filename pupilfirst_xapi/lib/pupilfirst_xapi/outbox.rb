@@ -42,7 +42,8 @@ module PupilfirstXapi
     end
 
     def call(**payload)
-      Xapi.post_statement(remote_lrs: @lrs, statement: statement_for(**payload))
+      statement = statement_for(**payload)
+      Xapi.post_statement(remote_lrs: @lrs, statement: statement) if statement
     end
 
     private
@@ -50,7 +51,7 @@ module PupilfirstXapi
 
     def statement_for(event_type:, timestamp:, **args)
       builder_for(event_type).call(**statement_args(**args)).tap do |statement|
-        statement.stamp(id: nil, timestamp: timestamp)
+        statement&.stamp(id: nil, timestamp: timestamp)
       end
     end
 
