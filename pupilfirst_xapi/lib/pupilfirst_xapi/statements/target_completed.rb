@@ -14,18 +14,7 @@ module PupilfirstXapi
         Xapi.create_statement(
           actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.name),
           verb: Verbs::COMPLETED_ASSIGNMENT,
-          object: object(submission.target).call
-        )
-      end
-
-      private
-
-      def object(target)
-        PupilfirstXapi::Object.new(
-          id: @uri_for.call(target),
-          type: "http://activitystrea.ms/schema/1.0/task",
-          name: target.title,
-          description: target.description
+          object: Objects.target(submission.target, @uri_for.call(submission.target))
         )
       end
     end
