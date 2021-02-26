@@ -12,7 +12,7 @@ module PupilfirstXapi
         return unless submission.passed?
 
         Xapi.create_statement(
-          actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.name),
+          actor: Actors.agent(actor),
           verb: Verbs::COMPLETED_ASSIGNMENT,
           object: Objects.target(submission.target, @uri_for.call(submission.target))
         )

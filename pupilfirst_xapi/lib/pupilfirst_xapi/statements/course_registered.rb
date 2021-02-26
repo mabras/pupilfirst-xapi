@@ -11,7 +11,7 @@ module PupilfirstXapi
         course = @repository.call(:course, resource_id)
 
         Xapi.create_statement(
-          actor: Xapi.create_agent(agent_type: 'Agent', email: actor.email, name: actor.name),
+          actor: Actors.agent(actor),
           verb: Verbs::REGISTERED,
           object: Objects.course(course, @uri_for.call(course))
         )
