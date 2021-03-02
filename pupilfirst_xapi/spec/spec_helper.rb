@@ -50,7 +50,9 @@ class FakeLrs
   end
   attr_reader :statements
 
-  def save_statement(statement)
+  def call(statement)
+    return unless statement
+
     @statements << statement
   end
 end

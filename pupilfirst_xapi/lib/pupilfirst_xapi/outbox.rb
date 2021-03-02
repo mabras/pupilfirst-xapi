@@ -1,5 +1,4 @@
 require "active_job"
-require 'xapi'
 
 module PupilfirstXapi
   class Outbox
@@ -14,17 +13,9 @@ module PupilfirstXapi
 
       def outbox
         Outbox.new(
-          lrs: remote_lrs,
+          lrs: PupilfirstXapi.lrs || PupilfirstXapi::Lrs.new,
           repository: PupilfirstXapi.repository,
           uri_for: PupilfirstXapi.uri_for
-        )
-      end
-
-      def remote_lrs
-        Xapi.create_remote_lrs(
-          end_point: ENV['LRS_ENDPOINT'],
-          user_name: ENV['LRS_KEY'],
-          password: ENV['LRS_SECRET']
         )
       end
     end
@@ -42,8 +33,7 @@ module PupilfirstXapi
     end
 
     def call(**payload)
-      statement = statement_for(**payload)
-      Xapi.post_statement(remote_lrs: @lrs, statement: statement) if statement
+      @lrs.call(statement_for(**payload))
     end
 
     private
