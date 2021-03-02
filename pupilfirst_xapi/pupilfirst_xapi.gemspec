@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files = Dir["spec/**/*"]
 
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.4"
-  spec.add_dependency "growthtribe_xapi", "~> 0.0.1"
+  spec.add_dependency "growthtribe_xapi", "~> 0.0.2"
 
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'dotenv-rails'

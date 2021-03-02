@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.2.1 (02.03.2021)
+
+* Change: Update growthtribe_xapi gem to 0.0.2
+
 ### 0.2.0 (02.03.2021)
 
 + Add: Allow to set LRS endpoint adapter by setting `PupilfirstXapi.lrs` module
