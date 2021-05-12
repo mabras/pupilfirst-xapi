@@ -9,6 +9,7 @@ module PupilfirstXapi
           description: target.description
         ).tap do |obj|
           obj.with_extension('course_id', course_uri)
+          obj.with_extension('course_name', target.course.name)
         end.call
       end
     end
