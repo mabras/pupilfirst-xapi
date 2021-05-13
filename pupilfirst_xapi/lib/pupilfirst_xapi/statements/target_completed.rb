@@ -12,12 +12,11 @@ module PupilfirstXapi
 
         actor = @repository.call(:user, actor_id)
         target = submission.target
-        course = target.course
 
         Xapi.create_statement(
           actor: Actors.agent(actor),
           verb: Verbs::COMPLETED_ASSIGNMENT,
-          object: Objects.target(target, @uri_for.call(target), @uri_for.call(course))
+          object: Objects.target(target, @uri_for)
         )
       end
     end

@@ -1,15 +1,19 @@
 module PupilfirstXapi
   module Objects
     class Target
-      def call(target, uri, course_uri)
+      def call(target, uri_for)
+        course = target.course
+        target_uri = uri_for.call(target)
+        course_uri = uri_for.call(course)
+
         Builder.new(
-          id: uri,
+          id: target_uri,
           type: "http://activitystrea.ms/schema/1.0/task",
           name: target.title,
           description: target.description
         ).tap do |obj|
           obj.with_extension('course_id', course_uri)
-          obj.with_extension('course_name', target.course.name)
+          obj.with_extension('course_name', course.name)
         end.call
       end
     end
