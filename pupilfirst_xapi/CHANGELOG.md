@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.2.2 (13.05.2021)
+* Change: Add course information to target request. Added course_id and course_name
+
 ### 0.2.1 (02.03.2021)
 
 * Change: Update growthtribe_xapi gem to 0.0.2
