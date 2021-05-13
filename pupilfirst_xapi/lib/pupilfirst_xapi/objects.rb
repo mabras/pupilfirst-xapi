@@ -4,8 +4,8 @@ require_relative 'objects/target'
 
 module PupilfirstXapi
   module Objects
-    def self.course(course, uri)
-      Course.new.call(course, uri)
+    def self.course(course, uri_for)
+      Course.new.call(course, uri_for)
     end
 
     def self.target(target, uri_for)

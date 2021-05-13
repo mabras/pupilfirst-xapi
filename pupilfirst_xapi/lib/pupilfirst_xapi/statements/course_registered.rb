@@ -13,7 +13,7 @@ module PupilfirstXapi
         Xapi.create_statement(
           actor: Actors.agent(actor),
           verb: Verbs::REGISTERED,
-          object: Objects.course(course, @uri_for.call(course))
+          object: Objects.course(course, @uri_for)
         )
       end
     end
