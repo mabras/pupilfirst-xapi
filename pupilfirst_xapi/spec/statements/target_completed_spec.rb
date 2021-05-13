@@ -28,8 +28,8 @@ module PupilfirstXapi
         expect(xapi.object.definition.name).to eq({'en-US' => '1st target'})
         expect(xapi.object.definition.description).to eq({'en-US' => 'Seems easy'})
         expect(xapi.object.definition.extensions).to eq({
-          'course_id'=>'course-1',
-          'course_name'=>'Rails for Begginers'
+          'http://id.tincanapi.com/extension/course_id'=>'course-1',
+          'http://id.tincanapi.com/extension/course_name'=>'Rails for Begginers'
         })
       end
 
