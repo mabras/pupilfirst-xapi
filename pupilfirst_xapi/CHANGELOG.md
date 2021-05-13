@@ -1,5 +1,10 @@
 # Changelog
 
+
+### 0.3.0 (13.05.2021)
+* Change: Add course lessons number information to target request.
+* Fix: correct target extension keys as uri
+
 ### 0.2.2 (13.05.2021)
 * Change: Add course information to target request. Added course_id and course_name
 
