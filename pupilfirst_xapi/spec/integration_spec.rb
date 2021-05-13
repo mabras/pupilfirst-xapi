@@ -90,7 +90,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
           'Authorization'=>'Basic a2V5OnNlY3JldA==',
           'Content-Type'=>'application/json',
-          'User-Agent'=>'Faraday v1.3.0',
+          'User-Agent'=>'Faraday v1.3.1',
           'X-Experience-Api-Version'=>'1.0.1'
         }
       ).to_return(status: 204, body: "", headers: {})
