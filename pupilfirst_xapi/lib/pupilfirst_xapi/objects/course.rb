@@ -1,7 +1,9 @@
 module PupilfirstXapi
   module Objects
     class Course
-      def call(course, uri)
+      def call(course, uri_for)
+        uri = uri_for.call(course)
+
         Builder.new(
           id: uri,
           type: 'http://adlnet.gov/expapi/activities/product',

@@ -21,7 +21,9 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
     double(:target,
            title: 'Getting Started with Rails',
            description: 'This guide covers getting up and running with Ruby on Rails.',
-           uri: 'https://guides.rubyonrails.org/getting_started.html')
+           uri: 'https://guides.rubyonrails.org/getting_started.html',
+           course: ror_guides
+          )
   }
   let(:good_one) { double(:timeline_event, target: getting_started, passed?: true) }
   let(:bad_one) { double(:timeline_event, target: getting_started, passed?: false) }
