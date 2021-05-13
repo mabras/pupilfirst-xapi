@@ -14,6 +14,7 @@ module PupilfirstXapi
         ).tap do |obj|
           obj.with_extension('http://id.tincanapi.com/extension/course_id', course_uri)
           obj.with_extension('http://id.tincanapi.com/extension/course_name', course.name)
+          obj.with_extension('http://id.tincanapi.com/extension/course_lessons_number', course.targets.count)
         end.call
       end
     end

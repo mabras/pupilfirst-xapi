@@ -4,7 +4,11 @@ module PupilfirstXapi
   module Statements
     RSpec.describe TargetCompleted do
       it do
-        course = double(:course, id: 17, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil)
+        course = double(:course, id: 17, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil,
+                                 targets: [
+                                   double(:target, title: '1st target', description: 'Seems easy'),
+                                   double(:target, title: '2nd target', description: 'Seems not easy')
+                                  ])
         target = double(:target, title: '1st target', course: course, description: 'Seems easy')
         submission = double(:timeline_event, target: target, passed?: true)
         john   = double(:john, name: 'John Doe', email: 'john@doe.com')
@@ -29,7 +33,8 @@ module PupilfirstXapi
         expect(xapi.object.definition.description).to eq({'en-US' => 'Seems easy'})
         expect(xapi.object.definition.extensions).to eq({
           'http://id.tincanapi.com/extension/course_id'=>'course-1',
-          'http://id.tincanapi.com/extension/course_name'=>'Rails for Begginers'
+          'http://id.tincanapi.com/extension/course_name'=>'Rails for Begginers',
+          'http://id.tincanapi.com/extension/course_lessons_number'=>2
         })
       end
 
