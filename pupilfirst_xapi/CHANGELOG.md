@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.1 (14.05.2021)
+* Change: add course information in target request host field
+* add target position in course information
 
 ### 0.3.0 (13.05.2021)
 * Change: Add course lessons number information to target request.
