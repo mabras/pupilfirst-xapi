@@ -5,7 +5,11 @@ module PupilfirstXapi
     RSpec.describe CourseCompleted do
       it do
         john   = double(:john, name: 'John Doe', email: 'john@doe.com')
-        course = double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil)
+        course = double(:course, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil,
+                                 targets: [
+                                   double(:target, title: '1st target', description: 'Seems easy'),
+                                   double(:target, title: '2nd target', description: 'Seems not easy')
+                                  ])
         data = {
           course: { 456 => course },
           user: { 123 => john },
