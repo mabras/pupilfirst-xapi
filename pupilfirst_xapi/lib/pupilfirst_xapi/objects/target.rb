@@ -4,7 +4,6 @@ module PupilfirstXapi
       def call(target, uri_for)
         course = target.course
         target_uri = uri_for.call(target)
-        course_uri = uri_for.call(course)
 
         Builder.new(
           id: target_uri,
@@ -12,9 +11,7 @@ module PupilfirstXapi
           name: target.title,
           description: target.description
         ).tap do |obj|
-          obj.with_extension('http://id.tincanapi.com/extension/course_id', course_uri)
-          obj.with_extension('http://id.tincanapi.com/extension/course_name', course.name)
-          obj.with_extension('http://id.tincanapi.com/extension/course_lessons_number', course.targets.count)
+          obj.with_extension('http://id.tincanapi.com/extension/host', Objects.course(course, uri_for).as_json)
         end.call
       end
     end

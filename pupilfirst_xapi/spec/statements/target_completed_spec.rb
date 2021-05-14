@@ -31,11 +31,7 @@ module PupilfirstXapi
         expect(xapi.object.definition.type).to eq 'http://activitystrea.ms/schema/1.0/task'
         expect(xapi.object.definition.name).to eq({'en-US' => '1st target'})
         expect(xapi.object.definition.description).to eq({'en-US' => 'Seems easy'})
-        expect(xapi.object.definition.extensions).to eq({
-          'http://id.tincanapi.com/extension/course_id'=>'course-1',
-          'http://id.tincanapi.com/extension/course_name'=>'Rails for Begginers',
-          'http://id.tincanapi.com/extension/course_lessons_number'=>2
-        })
+        expect(xapi.object.definition.extensions['http://id.tincanapi.com/extension/host']['id']).to eq 'course-1'
       end
 
       it 'no-op when submission is not passed'  do
