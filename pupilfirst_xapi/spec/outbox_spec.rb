@@ -5,7 +5,7 @@ module PupilfirstXapi
     let(:timestamp)   { Time.now }
     let(:john)        { double(:john, name: 'John Doe', email: 'john@doe.com') }
     let(:course)      { double(:course, id: 32, name: 'Rails for Begginers', description: 'Seems easy', created_at: 1.week.ago, ends_at: nil, targets: []) }
-    let(:target)      { double(:target, title: '1st target', description: 'Seems easy', course: course) }
+    let(:target)      { double(:target, title: '1st target', description: 'Seems easy', course: course, sort_index: 7) }
     let(:good_one)    { double(:timeline_event, target: target, passed?: true) }
     let(:bad_one)     { double(:timeline_event, target: target, passed?: false) }
 

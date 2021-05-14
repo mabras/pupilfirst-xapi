@@ -12,6 +12,7 @@ module PupilfirstXapi
           description: target.description
         ).tap do |obj|
           obj.with_extension('http://id.tincanapi.com/extension/host', Objects.course(course, uri_for).as_json)
+          obj.with_extension('http://id.tincanapi.com/extension/position', target.sort_index)
         end.call
       end
     end

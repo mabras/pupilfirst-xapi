@@ -9,7 +9,7 @@ module PupilfirstXapi
                                    double(:target, title: '1st target', description: 'Seems easy'),
                                    double(:target, title: '2nd target', description: 'Seems not easy')
                                   ])
-        target = double(:target, title: '1st target', course: course, description: 'Seems easy')
+        target = double(:target, title: '1st target', course: course, description: 'Seems easy', sort_index: 5)
         submission = double(:timeline_event, target: target, passed?: true)
         john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         data = {
@@ -35,7 +35,7 @@ module PupilfirstXapi
       end
 
       it 'no-op when submission is not passed'  do
-        target = double(:target, title: '1st target', description: 'Seems easy')
+        target = double(:target, title: '1st target', description: 'Seems easy', sort_index: 3)
         submission = double(:timeline_event, target: target, passed?: false)
         john   = double(:john, name: 'John Doe', email: 'john@doe.com')
         data = {
