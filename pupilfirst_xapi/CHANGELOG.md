@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.2 (17.05.2021)
+* Change: Add lessons total number information also when no course duration is set
+
 ### 0.3.1 (14.05.2021)
 * Change: add course information in target request host field
 * add target position in course information
