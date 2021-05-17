@@ -10,10 +10,10 @@ module PupilfirstXapi
           name: course.name,
           description: course.description
         ).tap do |obj|
+          obj.with_extension('http://id.tincanapi.com/extension/ending-position', course.targets.count)
           if course.ends_at.present?
             duration = ActiveSupport::Duration.build(course.ends_at - course.created_at).iso8601
             obj.with_extension("http://id.tincanapi.com/extension/planned-duration", duration)
-            obj.with_extension('http://id.tincanapi.com/extension/ending-position', course.targets.count)
           end
         end.call
       end

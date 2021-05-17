@@ -15,7 +15,12 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
            description: 'These guides are designed to make you immediately productive with Rails',
            created_at: Time.new(2021,01,01),
            ends_at: nil,
-           uri: 'https://guides.rubyonrails.org/')
+           uri: 'https://guides.rubyonrails.org/',
+           targets: [
+             double(:target, title: '1st target', description: 'Seems easy'),
+             double(:target, title: '2nd target', description: 'Seems not easy')
+            ]
+          )
   }
   let(:getting_started) {
     double(:target,
@@ -77,6 +82,7 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
           name: {'en-US' => 'Ruby on Rails Guides'},
           description: {'en-US' => 'These guides are designed to make you immediately productive with Rails'},
           type: 'http://adlnet.gov/expapi/activities/product',
+          extensions: {"http://id.tincanapi.com/extension/ending-position"=>2}
         },
       },
       timestamp: timestamp.iso8601,

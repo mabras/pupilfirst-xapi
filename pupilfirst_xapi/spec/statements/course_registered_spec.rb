@@ -29,7 +29,9 @@ module PupilfirstXapi
         expect(xapi.object.definition.type).to eq 'http://adlnet.gov/expapi/activities/product'
         expect(xapi.object.definition.name).to eq({'en-US' => 'Rails for Begginers'})
         expect(xapi.object.definition.description).to eq({'en-US' => 'Seems easy'})
-        expect(xapi.object.definition.extensions).to eq nil
+        expect(xapi.object.definition.extensions).to eq ({
+          "http://id.tincanapi.com/extension/ending-position" => 2
+        })
       end
 
       it do
