@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   spec.test_files = Dir["spec/**/*"]
 
-  spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.4"
+  spec.add_dependency "rails", ">= 6.0.3.4"
   spec.add_dependency "growthtribe_xapi", "~> 0.0.2"
 
   spec.add_development_dependency 'rspec-rails'

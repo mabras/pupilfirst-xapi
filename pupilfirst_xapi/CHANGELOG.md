@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.3 (09.07.2021)
+* Change: Allow any Rails version >= 6.0.3.4
+
 ### 0.3.2 (17.05.2021)
 * Change: Add lessons total number information also when no course duration is set
 
