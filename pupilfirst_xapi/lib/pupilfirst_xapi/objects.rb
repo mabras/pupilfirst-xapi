@@ -16,5 +16,10 @@ module PupilfirstXapi
     def self.video_start(student, video_id, uri_for)
       VideoStart.new.call(student, video_id, uri_for)
     end
+
+
+    def self.video_end(student, video_id, uri_for)
+      VideoEnd.new.call(student, video_id, uri_for)
+    end
   end
 end
