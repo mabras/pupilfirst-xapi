@@ -1,7 +1,7 @@
 require "pupilfirst_xapi/statements/course_completed"
 require "pupilfirst_xapi/statements/course_registered"
 require "pupilfirst_xapi/statements/target_completed"
-require "pupilfirst_xapi/statements/student_video_event_occured"
+require "pupilfirst_xapi/statements/video_started"
 
 module PupilfirstXapi
   module Statements
@@ -18,7 +18,7 @@ module PupilfirstXapi
       :student_added                      => CourseRegistered,
       :submission_graded                  => TargetCompleted,
       :submission_automatically_verified  => TargetCompleted,
-      :student_video_event_occured        => StudentVideoEventOccured
+      :video_started                      => VideoStarted
     }
   end
 end
