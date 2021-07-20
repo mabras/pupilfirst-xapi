@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.3.4 (20.07.2021)
+* add video_started event
+* add video_ended event
+
 ### 0.3.3 (09.07.2021)
 * Change: Allow any Rails version >= 6.0.3.4
 
