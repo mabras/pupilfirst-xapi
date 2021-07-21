@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.5 (21.07.2021)
+* target as video events resource
+
 ### 0.3.4 (20.07.2021)
 * add video_started event
 * add video_ended event
