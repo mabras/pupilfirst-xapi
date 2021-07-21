@@ -2,6 +2,7 @@ require_relative 'objects/builder'
 require_relative 'objects/course'
 require_relative 'objects/target'
 require_relative 'objects/video_start'
+require_relative 'objects/video_end'
 
 module PupilfirstXapi
   module Objects
