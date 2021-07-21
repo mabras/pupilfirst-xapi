@@ -1,15 +1,14 @@
 module PupilfirstXapi
   module Objects
     class VideoEnd
-      def call(student, video_id, uri_for)
-        student_uri = uri_for.call(student)
-        puts video_id
+      def call(target, uri_for)
+        target_uri = uri_for.call(target)
 
         Builder.new(
-          id: student_uri,
+          id: target_uri,
           type: "http://activitystrea.ms/schema/1.0/event",
-          name: student.name,
-          description: "student started video #{video_id}"
+          name: "video in #{target.title}",
+          description: target.description
         ).call
       end
     end
