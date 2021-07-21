@@ -108,12 +108,14 @@ RSpec.describe "#xapi", type: :job, perform_jobs: true do
       resource_id: ror_guides.id,
       actor_id: john.id,
     )
-    expect(PupilfirstXapi::Outbox::Job).to have_been_performed.with({
-      event_type: :course_completed,
-      actor_id: 123,
-      resource_id: 1234,
-      timestamp: timestamp,
-    })
+    expect(PupilfirstXapi::Outbox::Job).to have_been_performed.with(
+      hash_including({
+        event_type: :course_completed,
+        actor_id: 123,
+        resource_id: 1234,
+      })
+    )
+
     expect(request).to have_been_requested
   end
 end
