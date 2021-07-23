@@ -12,7 +12,7 @@ module PupilfirstXapi
 
         Xapi.create_statement(
           actor: Actors.agent(actor),
-          verb: Verbs::SURVEY_STARTED,
+          verb: Verbs::STARTED,
           object: Objects.survey_start(survey, @uri_for)
         )
       end

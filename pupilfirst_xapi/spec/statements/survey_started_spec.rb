@@ -30,7 +30,7 @@ module PupilfirstXapi
 
         expect(xapi).to be_a Xapi::Statement
         expect_actor(xapi.actor, name: 'John Doe', email: 'john@doe.com')
-        expect(xapi.verb).to eq Verbs::SURVEY_STARTED
+        expect(xapi.verb).to eq Verbs::STARTED
 
         expect(xapi.object).to be_a Xapi::Activity
         expect(xapi.object.object_type).to eq 'Activity'
