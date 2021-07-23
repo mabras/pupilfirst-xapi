@@ -10,7 +10,7 @@ module PupilfirstXapi
           name: "survey #{survey.name}",
           description: survey.description
         ).with_extension(
-          'survey_slug', survey.slug
+          'http://id.tincanapi.com/extension/target', survey.slug
         ).call
       end
     end
