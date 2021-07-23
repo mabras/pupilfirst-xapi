@@ -4,6 +4,7 @@ require_relative 'objects/target'
 require_relative 'objects/video_start'
 require_relative 'objects/video_end'
 require_relative 'objects/survey_start'
+require_relative 'objects/survey_end'
 
 module PupilfirstXapi
   module Objects
@@ -25,6 +26,10 @@ module PupilfirstXapi
 
     def self.survey_start(survey, uri_for)
       SurveyStart.new.call(survey, uri_for)
+    end
+
+    def self.survey_complete(survey, uri_for)
+      SurveyEnd.new.call(survey, uri_for)
     end
   end
 end
