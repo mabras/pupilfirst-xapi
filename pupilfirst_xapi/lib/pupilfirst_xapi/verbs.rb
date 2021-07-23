@@ -7,5 +7,6 @@ module PupilfirstXapi
     VIDEO_ENDED           = Xapi.create_verb(id: 'http://activitystrea.ms/schema/1.0/consume', name: 'consumed')
     STARTED               = Xapi.create_verb(id: 'http://adlnet.gov/expapi/verbs/initialized', name: 'initialized')
     VIEWED                = Xapi.create_verb(id: 'http://id.tincanapi.com/verb/viewed', name: 'viewed')
+    ANSWERED              = Xapi.create_verb(id: 'https://w3id.org/xapi/dod-isd/verbs/answered', name: 'answered')
   end
 end
