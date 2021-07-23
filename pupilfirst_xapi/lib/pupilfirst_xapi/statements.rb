@@ -6,6 +6,7 @@ require "pupilfirst_xapi/statements/video_ended"
 require "pupilfirst_xapi/statements/survey_started"
 require "pupilfirst_xapi/statements/survey_ended"
 require "pupilfirst_xapi/statements/capability_result_viewed"
+require "pupilfirst_xapi/statements/question_answered"
 
 module PupilfirstXapi
   module Statements
@@ -26,7 +27,8 @@ module PupilfirstXapi
       :video_ended                        => VideoEnded,
       :survey_started                     => SurveyStarted,
       :survey_ended                       => SurveyEnded,
-      :capability_result_viewed           => CapabilityResultViewed
+      :capability_result_viewed           => CapabilityResultViewed,
+      :question_answered                  => QuestionAnswered
     }
   end
 end
