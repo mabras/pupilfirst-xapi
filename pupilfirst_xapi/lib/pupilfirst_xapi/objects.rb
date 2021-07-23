@@ -28,7 +28,7 @@ module PupilfirstXapi
       SurveyStart.new.call(survey, uri_for)
     end
 
-    def self.survey_complete(survey, uri_for)
+    def self.survey_end(survey, uri_for)
       SurveyEnd.new.call(survey, uri_for)
     end
   end
