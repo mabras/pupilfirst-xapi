@@ -5,5 +5,6 @@ module PupilfirstXapi
     REGISTERED            = Xapi.create_verb(id: 'http://adlnet.gov/expapi/verbs/registered', name: 'registered')
     VIDEO_STARTED         = Xapi.create_verb(id: 'http://activitystrea.ms/schema/1.0/start', name: 'start')
     VIDEO_ENDED           = Xapi.create_verb(id: 'http://activitystrea.ms/schema/1.0/consume', name: 'consumed')
+    SURVEY_STARTED        = Xapi.create_verb(id: 'http://adlnet.gov/expapi/verbs/initialized', name: 'initialized')
   end
 end
