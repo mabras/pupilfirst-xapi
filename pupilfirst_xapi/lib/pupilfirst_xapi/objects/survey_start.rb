@@ -7,7 +7,7 @@ module PupilfirstXapi
         Builder.new(
           id: target_uri,
           type: 'http://adlnet.gov/expapi/activities/assessment',
-          name: "survey #{survey.name}",
+          name: survey.name,
           description: survey.description
         ).with_extension(
           'http://id.tincanapi.com/extension/target', survey.slug
