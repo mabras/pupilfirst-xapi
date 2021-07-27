@@ -7,7 +7,7 @@ module PupilfirstXapi
         Builder.new(
           id: target_uri,
           type: 'http://id.tincanapi.com/activitytype/survey',
-          name: "#{survey.name}",
+          name: survey.name,
           description: survey.description
         ).call
       end
