@@ -7,6 +7,7 @@ require_relative 'objects/survey_start'
 require_relative 'objects/survey_end'
 require_relative 'objects/survey'
 require_relative 'objects/question_answer'
+require_relative 'objects/answer'
 
 module PupilfirstXapi
   module Objects
@@ -40,6 +41,10 @@ module PupilfirstXapi
 
     def self.question_answer(question, uri_for)
       QuestionAnswer.new.call(question, uri_for)
+    end
+
+    def self.answer(question, uri_for)
+      Answer.new.call(question, uri_for)
     end
   end
 end
