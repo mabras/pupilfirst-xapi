@@ -4,9 +4,9 @@ module PupilfirstXapi
   module Statements
     RSpec.describe QuestionAnswered do
       it do
-        john            = double(:john, name: 'John Doe', email: 'john@doe.com')
-        question_answer = double(
-          :question_answer,
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
+        answer = double(
+          :answer,
           answer_id: 42,
           question_id: 4,
           question_description: "What is your favorite animal?",
@@ -23,12 +23,12 @@ module PupilfirstXapi
         )
 
         data = {
-          question_answer: { 456 => question_answer },
+          answer: { 456 => answer },
           user: { 123 => john }
         }
 
         repository = ->(klass, resource_id) { data.dig(klass, resource_id) }
-        uri_for = ->(obj) { obj == question_answer ? 'rails-for-begginers' : nil }
+        uri_for = ->(obj) { obj == answer ? 'rails-for-begginers' : nil }
 
         xapi = QuestionAnswered.new(repository, uri_for).call(actor_id: 123, resource_id: 456)
 
@@ -40,7 +40,7 @@ module PupilfirstXapi
         expect(xapi.object.object_type).to eq 'Activity'
         expect(xapi.object.id).to eq 'rails-for-begginers'
         expect(xapi.object.definition.type).to eq 'http://adlnet.gov/expapi/activities/assessment'
-        expect(xapi.object.definition.name).to eq({'en-US' => 'question answered What is your favorite animal?'})
+        expect(xapi.object.definition.name).to eq({'en-US' => 'What is your favorite animal?'})
         expect(xapi.object.definition.description).to eq({'en-US' => 'What is your favorite animal?'})
         expect(xapi.object.definition.extensions.fetch('http://adlnet.gov/expapi/activities/question')).to eq("What is your favorite animal?")
       end
