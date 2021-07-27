@@ -34,8 +34,8 @@ module PupilfirstXapi
         expect(xapi.object).to be_a Xapi::Activity
         expect(xapi.object.object_type).to eq 'Activity'
         expect(xapi.object.id).to eq 'rails-for-begginers'
-        expect(xapi.object.definition.type).to eq 'http://adlnet.gov/expapi/activities/resource'
-        expect(xapi.object.definition.name).to eq({'en-US' => 'survey Rails for Beginners'})
+        expect(xapi.object.definition.type).to eq 'http://id.tincanapi.com/activitytype/survey'
+        expect(xapi.object.definition.name).to eq({'en-US' => 'Rails for Beginners'})
         expect(xapi.object.definition.description).to eq({'en-US' => 'Seems easy'})
       end
     end
