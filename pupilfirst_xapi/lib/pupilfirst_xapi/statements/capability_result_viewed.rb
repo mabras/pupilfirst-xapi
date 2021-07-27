@@ -7,12 +7,12 @@ module PupilfirstXapi
       end
 
       def call(actor_id:, resource_id:)
-        actor             = @repository.call(:user, actor_id)
-        capability_result = @repository.call(:capability_result, resource_id)
+        actor  = @repository.call(:user, actor_id)
+        survey = @repository.call(:survey, resource_id)
         Xapi.create_statement(
           actor: Actors.agent(actor),
           verb: Verbs::VIEWED,
-          object: Objects.capability_result_viewed(capability_result, @uri_for)
+          object: Objects.capability_result_viewed(survey, @uri_for)
         )
       end
     end
