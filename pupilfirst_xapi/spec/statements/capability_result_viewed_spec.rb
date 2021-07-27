@@ -4,9 +4,9 @@ module PupilfirstXapi
   module Statements
     RSpec.describe CapabilityResultViewed do
       it do
-        john              = double(:john, name: 'John Doe', email: 'john@doe.com')
-        capability_result = double(
-          :capability_result,
+        john   = double(:john, name: 'John Doe', email: 'john@doe.com')
+        survey = double(
+          :survey,
           name: 'Rails for Beginners',
           description: 'Seems easy',
           created_at: 1.week.ago,
@@ -18,12 +18,12 @@ module PupilfirstXapi
         )
 
         data = {
-          capability_result: { 456 => capability_result },
+          survey: { 456 => survey },
           user: { 123 => john }
         }
 
         repository = ->(klass, resource_id) { data.dig(klass, resource_id) }
-        uri_for = ->(obj) { obj == capability_result ? 'rails-for-begginers' : nil }
+        uri_for = ->(obj) { obj == survey ? 'rails-for-begginers' : nil }
 
         xapi = CapabilityResultViewed.new(repository, uri_for).call(actor_id: 123, resource_id: 456)
 
