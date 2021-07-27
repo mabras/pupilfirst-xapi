@@ -6,6 +6,7 @@ require_relative 'objects/video_end'
 require_relative 'objects/survey_start'
 require_relative 'objects/survey_end'
 require_relative 'objects/capability_result_view'
+require_relative 'objects/survey'
 
 module PupilfirstXapi
   module Objects
@@ -33,7 +34,7 @@ module PupilfirstXapi
       SurveyEnd.new.call(survey, uri_for)
 
     def self.capability_result_viewed(survey, uri_for)
-      CapabilityResultView.new.call(survey, uri_for)
+      Survey.new.call(survey, uri_for)
     end
   end
 end
