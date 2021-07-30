@@ -8,7 +8,7 @@ module PupilfirstXapi
           id: target_uri,
           type: 'http://id.tincanapi.com/activitytype/survey',
           name: survey.name,
-          description: survey.description
+          description: survey.external_name
         ).call
       end
     end
