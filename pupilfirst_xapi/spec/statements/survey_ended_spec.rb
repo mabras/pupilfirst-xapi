@@ -8,7 +8,7 @@ module PupilfirstXapi
         survey = double(
           :survey,
           name: 'Rails for Beginners',
-          description: 'Seems easy',
+          external_name: 'Seems easy',
           slug: 'a6ad5226-7d8b-4108-9cc9-f0821de150f5',
           created_at: 1.week.ago,
           ends_at: nil,
