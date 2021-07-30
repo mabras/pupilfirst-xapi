@@ -5,11 +5,12 @@ module PupilfirstXapi
     RSpec.describe QuestionAnswered do
       it do
         john   = double(:john, name: 'John Doe', email: 'john@doe.com')
+        question = double(:question, description: "What is your favorite animal?")
         answer = double(
           :answer,
           answer_id: 42,
           question_id: 4,
-          question_description: "What is your favorite animal?",
+          question: question,
           alternative_id: nil,
           survey_group_id:7,
           user_external_id: 'a6ad5226-7d8b-4108-9cc9-f0821de150f5',

@@ -7,10 +7,9 @@ module PupilfirstXapi
         Builder.new(
           id: target_uri,
           type: 'http://adlnet.gov/expapi/activities/assessment',
-          name: answer.question_description,
-          description: answer.question_description
-        ).with_extension('answer_id', answer.answer_id)
-          .with_extension('http://adlnet.gov/expapi/activities/question', answer.question_description)
+          name: answer.question.description,
+          description: answer.question.description
+        ).with_extension('http://adlnet.gov/expapi/activities/question', answer.question.description)
           .call
       end
     end
