@@ -10,6 +10,7 @@ module PupilfirstXapi
           name: answer.question.description,
           description: answer.question.description
         ).with_extension('http://adlnet.gov/expapi/activities/question', answer.question.description)
+        .with_extension('http://adlnet.gov/expapi/activities/answer', answer.content || answer.alternatives.as_json)
           .call
       end
     end
