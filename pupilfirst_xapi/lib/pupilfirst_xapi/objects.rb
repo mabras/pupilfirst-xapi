@@ -32,6 +32,7 @@ module PupilfirstXapi
 
     def self.survey_end(survey, uri_for)
       SurveyEnd.new.call(survey, uri_for)
+    end
 
     def self.capability_result_viewed(survey, uri_for)
       Survey.new.call(survey, uri_for)

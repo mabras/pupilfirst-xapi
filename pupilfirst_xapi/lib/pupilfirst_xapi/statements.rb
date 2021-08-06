@@ -25,7 +25,7 @@ module PupilfirstXapi
       :video_started                      => VideoStarted,
       :video_ended                        => VideoEnded,
       :survey_started                     => SurveyStarted,
-      :survey_ended                       => SurveyEnded
+      :survey_ended                       => SurveyEnded,
       :capability_result_viewed           => CapabilityResultViewed
     }
   end
