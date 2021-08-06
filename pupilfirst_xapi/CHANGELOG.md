@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.3.8 (06.08.2021)
+
+* add add_question_answered_statement event
+
 ### 0.3.7 (06.08.2021)
 
 * add capability_result_viewed event
