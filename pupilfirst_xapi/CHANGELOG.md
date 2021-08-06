@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.3.6 (06.08.2021)
+
+* add survey_started event
+* add survey_ended event
+
 ### 0.3.5 (21.07.2021)
 * target as video events resource
 
