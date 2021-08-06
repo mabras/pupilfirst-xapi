@@ -5,7 +5,6 @@ require_relative 'objects/video_start'
 require_relative 'objects/video_end'
 require_relative 'objects/survey_start'
 require_relative 'objects/survey_end'
-require_relative 'objects/capability_result_view'
 require_relative 'objects/survey'
 
 module PupilfirstXapi
