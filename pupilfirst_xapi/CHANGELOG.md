@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.3.7 (06.08.2021)
+
+* add capability_result_viewed event
+
 ### 0.3.6 (06.08.2021)
 
 * add survey_started event
