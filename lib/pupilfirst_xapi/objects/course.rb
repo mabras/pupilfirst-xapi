@@ -6,7 +6,7 @@ module PupilfirstXapi
 
         Builder.new(
           id: uri,
-          type: 'http://adlnet.gov/expapi/activities/product',
+          type: 'http://adlnet.gov/expapi/activities/course',
           name: course.name,
           description: course.description
         ).tap do |obj|
