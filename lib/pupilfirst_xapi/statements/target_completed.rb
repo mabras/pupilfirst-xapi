@@ -22,7 +22,7 @@ module PupilfirstXapi
             score: Xapi::Score.new(scaled: scaled, min: 0, max: max.to_i, raw: raw.to_i),
             success: true,
             completion: true
-          )
+          ),
           object: Objects.target(target, @uri_for)
         )
       end
