@@ -6,7 +6,7 @@ module PupilfirstXapi
 
         Builder.new(
           id: target_uri,
-          type: "http://activitystrea.ms/schema/1.0/event",
+          type: "http://adlnet.gov/expapi/activities/video",
           name: "video in #{target.title}",
           description: target.description
         ).call
