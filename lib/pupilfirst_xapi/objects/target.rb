@@ -7,7 +7,7 @@ module PupilfirstXapi
 
         Builder.new(
           id: target_uri,
-          type: "http://activitystrea.ms/schema/1.0/task",
+          type: "http://adlnet.gov/expapi/activities/unit-test",
           name: target.title,
           description: target.description
         ).tap do |obj|
