@@ -21,7 +21,7 @@ module PupilfirstXapi
     EVENTS = {
       :course_completed                   => CourseCompleted,
       :student_added                      => CourseRegistered,
-      :submission_graded                  => TargetCompleted,
+      :submission_graded                  => QuizCompleted,
       :submission_automatically_verified  => TargetCompleted,
       :video_started                      => VideoStarted,
       :video_ended                        => VideoEnded,
