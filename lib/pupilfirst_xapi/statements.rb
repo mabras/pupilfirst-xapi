@@ -1,5 +1,6 @@
 require "pupilfirst_xapi/statements/course_completed"
 require "pupilfirst_xapi/statements/course_registered"
+require "pupilfirst_xapi/statements/quiz_completed"
 require "pupilfirst_xapi/statements/target_completed"
 require "pupilfirst_xapi/statements/video_started"
 require "pupilfirst_xapi/statements/video_ended"
