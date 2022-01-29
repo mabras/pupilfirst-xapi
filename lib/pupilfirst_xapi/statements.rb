@@ -8,6 +8,7 @@ require "pupilfirst_xapi/statements/survey_started"
 require "pupilfirst_xapi/statements/survey_ended"
 require "pupilfirst_xapi/statements/capability_result_viewed"
 require "pupilfirst_xapi/statements/question_answered"
+require "pupilfirst_xapi/statements/certificate_issued"
 
 module PupilfirstXapi
   module Statements
@@ -22,6 +23,7 @@ module PupilfirstXapi
     EVENTS = {
       :course_completed                   => CourseCompleted,
       :student_added                      => CourseRegistered,
+      :certificate_issued                 => CertificateIssued,
       :submission_graded                  => QuizCompleted,
       :submission_automatically_verified  => TargetCompleted,
       :video_started                      => VideoStarted,

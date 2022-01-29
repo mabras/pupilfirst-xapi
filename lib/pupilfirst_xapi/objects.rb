@@ -3,6 +3,7 @@ require_relative 'objects/course'
 require_relative 'objects/target'
 require_relative 'objects/video_start'
 require_relative 'objects/video_end'
+require_relative 'objects/certificate'
 require_relative 'objects/survey_start'
 require_relative 'objects/survey_end'
 require_relative 'objects/survey'
@@ -24,6 +25,10 @@ module PupilfirstXapi
 
     def self.video_end(target, uri_for)
       VideoEnd.new.call(target, uri_for)
+    end
+
+    def self.issued_certificate(issued_certificate, uri_for)
+      Certificate.new.call(issued_certificate, uri_for)
     end
 
     def self.survey_start(survey, uri_for)
