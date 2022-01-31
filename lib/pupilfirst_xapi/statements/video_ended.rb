@@ -16,7 +16,7 @@ module PupilfirstXapi
         )
         context = Xapi.create_context(
           instructor: instructor_agent,
-          platform: "ZAMN",
+          platform: "ZAMN-#{actor.school.id}",
           language: "ar-SA",
           extensions: {
             "http://id.tincanapi.com/extension/attempt-id" => 1,
