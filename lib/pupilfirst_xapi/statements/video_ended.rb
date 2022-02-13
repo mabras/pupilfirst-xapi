@@ -10,7 +10,7 @@ module PupilfirstXapi
         actor = @repository.call(:user, actor_id)
         target = @repository.call(:target, resource_id)
         instructor = target.course.course_authors&.first&.user
-        instructor_agent = Xapi::Agent.new(name: instructor.name, mbox: "mailto:#{instructor.email}")
+        instructor_agent = Xapi::Agent.new(name: instructor&.name, mbox: "mailto:#{instructor&.email}")
         context_activities = Xapi.create_context_activities(
           parent: [Xapi::Activity.new.tap { |obj| obj.id = PupilfirstXapi.uri_for.call(target.course) }]
         )
