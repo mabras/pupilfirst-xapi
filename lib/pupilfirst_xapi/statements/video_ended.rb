@@ -21,7 +21,7 @@ module PupilfirstXapi
           extensions: {
             "http://id.tincanapi.com/extension/attempt-id" => 1,
             "http://id.tincanapi.com/extension/browser-info": {
-              code_name:"Unknow",
+              code_name: "Unknow",
               name: "Unknow",
               version: "Unknow"
             }
